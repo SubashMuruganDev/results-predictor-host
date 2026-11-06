@@ -1,0 +1,46 @@
+symbol,result_date,metric,basis,base,E1,v2_expectation,forecaster,threshold,v2_call,candidate_call,reason
+COCHINSHIP,2026-11-10,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+COCHINSHIP,2026-11-10,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+COCHINSHIP,2026-11-10,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+KALYANKJIL,2026-11-10,sales,consolidated,7856.026,11298.088981315392,11444.888484049541,F2,0.05,NO CALL,NO CALL,within_locked_threshold
+KALYANKJIL,2026-11-10,margin,consolidated,6.326341078810075,7.091908799420587,5.310324780863862,F2,2.0,NO CALL,NO CALL,within_locked_threshold
+KALYANKJIL,2026-11-10,pat,consolidated,260.51,424.19899999999996,343.94631689159513,F2,0.05,MISS,MISS,guarded_forecast_vs_E1
+TATAPOWER,2026-11-11,sales,consolidated,15544.91,14740.73787295334,16420.791385151264,F2,0.05,BEAT,BEAT,guarded_forecast_vs_E1
+TATAPOWER,2026-11-11,margin,consolidated,21.241358103713697,19.43742113887734,19.357317719788632,F2,2.0,NO CALL,NO CALL,within_locked_threshold
+TATAPOWER,2026-11-11,pat,consolidated,919.44,892.4350000000002,1020.131978940615,F2,0.05,NO CALL,NO CALL,g4_one_off
+ALKEM,2026-11-12,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+ALKEM,2026-11-12,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+ALKEM,2026-11-12,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+BDL,2026-11-12,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+BDL,2026-11-12,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+BDL,2026-11-12,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+HAL,2026-11-12,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+HAL,2026-11-12,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+HAL,2026-11-12,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+IDEA,2026-11-12,sales,consolidated,11194.7,11490.971593422299,11871.612456339308,F2,0.05,NO CALL,NO CALL,within_locked_threshold
+IDEA,2026-11-12,margin,consolidated,42.186927742592474,54.5268820853162,57.19265198224793,F2,2.0,BEAT,BEAT,guarded_forecast_vs_E1
+IDEA,2026-11-12,pat,consolidated,-5524.2,-3435.4999999999995,-3138.2465156398957,F2,0.05,BEAT,BEAT,guarded_forecast_vs_E1
+NMDC,2026-11-12,sales,consolidated,6378.11,7390.94279341883,6431.481285781274,F2,0.05,NO CALL,NO CALL,missing_consistent_forecast
+NMDC,2026-11-12,margin,consolidated,31.252675165527094,30.799421535907605,30.799421535907605,F2,2.0,NO CALL,NO CALL,missing_consistent_forecast
+NMDC,2026-11-12,pat,consolidated,1698.86,1707.35,1706.1898918556312,F2,0.05,NO CALL,NO CALL,missing_consistent_forecast
+OIL,2026-11-12,sales,consolidated,9175.41,9964.908816810723,13512.871016338397,F2,0.05,BEAT,BEAT,guarded_forecast_vs_E1
+OIL,2026-11-12,margin,consolidated,25.104927191264476,25.614243901706814,43.190243496147886,F2,2.0,BEAT,BEAT,guarded_forecast_vs_E1
+OIL,2026-11-12,pat,consolidated,1428.83,1751.7,2734.8123546999077,F2,0.05,BEAT,BEAT,guarded_forecast_vs_E1
+PAGEIND,2026-11-12,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+PAGEIND,2026-11-12,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+PAGEIND,2026-11-12,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+POWERINDIA,2026-11-12,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+POWERINDIA,2026-11-12,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+POWERINDIA,2026-11-12,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+ABB,2026-11-13,sales,consolidated,3310.72,,,F2,0.05,NO CALL,NO CALL,g1_fewer_than_5_same_family;missing_consistent_forecast
+ABB,2026-11-13,margin,consolidated,15.11423497003673,,,F2,2.0,NO CALL,NO CALL,g1_fewer_than_5_same_family;missing_consistent_forecast
+ABB,2026-11-13,pat,consolidated,0.0,,,F2,0.05,NO CALL,NO CALL,g1_fewer_than_5_same_family;g3_small_pat;missing_consistent_forecast
+GRASIM,2026-11-13,sales,consolidated,39899.58,47941.783850450054,48450.87100868236,F2,0.05,NO CALL,NO CALL,within_locked_threshold
+GRASIM,2026-11-13,margin,consolidated,12.20985283554363,13.280043057699904,13.057970335465937,F2,2.0,NO CALL,NO CALL,within_locked_threshold
+GRASIM,2026-11-13,pat,consolidated,553.48,866.19,837.1995564891307,F2,0.05,NO CALL,NO CALL,g4_one_off
+RVNL,2026-11-13,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+RVNL,2026-11-13,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+RVNL,2026-11-13,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+TMPV,2026-11-13,sales,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+TMPV,2026-11-13,margin,missing,,,,F2,2.0,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast
+TMPV,2026-11-13,pat,missing,,,,F2,0.05,NO CALL,NO CALL,g1_missing_q1;missing_base;missing_consistent_forecast

@@ -1,0 +1,27 @@
+{
+  "symbol": "OIL",
+  "fixture": true,
+  "records": {
+    "symbol": "OIL",
+    "underlyingValue": 400,
+    "data": [
+      {
+        "strikePrice": 400,
+        "expiryDate": "24-Nov-2026",
+        "CE": {
+          "lastPrice": 12,
+          "openInterest": 200,
+          "totalTradedVolume": 150,
+          "impliedVolatility": 25
+        },
+        "PE": {
+          "lastPrice": 10,
+          "openInterest": 220,
+          "totalTradedVolume": 140,
+          "impliedVolatility": 26
+        }
+      }
+    ],
+    "timestamp": "05-Nov-2026 15:30:00"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "data": {
+    "UnderlyingList": [
+      {
+        "symbol": "TATAPOWER",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "OIL",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "IDEA",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "KALYANKJIL",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "NMDC",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "ABB",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "GRASIM",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "COCHINSHIP",
+        "instrument": "FUTSTK"
+      },
+      {
+        "symbol": "NIFTY",
+        "instrument": "FUTIDX"
+      }
+    ]
+  }
+}

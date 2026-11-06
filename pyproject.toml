@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "results_predictor"
+version = "0.2.0"
+description = "Results-season discovery and own-history forecasts"
+requires-python = ">=3.10"
+dependencies = ["pandas>=1.5", "requests>=2.28", "turso_serverless>=0.1.0"]
+
+[project.scripts]
+results-predictor = "results_predictor.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["results_predictor*"]

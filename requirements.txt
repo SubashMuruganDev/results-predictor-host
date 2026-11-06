@@ -1,0 +1,4 @@
+pandas>=1.5
+requests>=2.28
+turso_serverless>=0.1.0
+pytest>=7  # development/tests only

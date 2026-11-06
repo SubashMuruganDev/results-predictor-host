@@ -1,0 +1,61 @@
+[
+  {
+    "symbol": "TATAPOWER",
+    "date": "2026-11-11",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "OIL",
+    "date": "2026-11-12",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "IDEA",
+    "date": "2026-11-10",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "KALYANKJIL",
+    "date": "2026-11-10",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "NMDC",
+    "date": "2026-11-11",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "ABB",
+    "date": "2026-11-09",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "symbol": "GRASIM",
+    "date": "2026-11-12",
+    "purpose": "Financial Results",
+    "fixture": true
+  },
+  {
+    "bm_symbol": "COCHINSHIP",
+    "bm_date": "13-Nov-2026",
+    "purpose": "Board Meeting Intimation",
+    "bm_desc": "To consider and approve the unaudited financial results for the quarter ended September 30, 2026.",
+    "fixture": true
+  },
+  {
+    "symbol": "NOTFO",
+    "date": "2026-11-11",
+    "purpose": "Financial Results"
+  },
+  {
+    "symbol": "OIL",
+    "date": "2026-11-11",
+    "purpose": "Dividend"
+  }
+]

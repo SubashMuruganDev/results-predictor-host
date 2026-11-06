@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: results-predictor
+    runtime: python
+    plan: free
+    buildCommand: pip install .
+    startCommand: python3 -m results_predictor serve --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: RESULTS_PREDICTOR_HOSTED
+        value: "1"
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
+      - key: RESULTS_PREDICTOR_WRITE_TOKEN
+        sync: false
