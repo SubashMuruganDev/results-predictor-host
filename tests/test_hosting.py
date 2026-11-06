@@ -40,6 +40,8 @@ def http_api(tmp_path, monkeypatch):
     import threading
     import http.client
     import json
+    for key in ('RESULTS_PREDICTOR_HOSTED','TURSO_DATABASE_URL','TURSO_AUTH_TOKEN','RESULTS_PREDICTOR_WRITE_TOKEN','RESULTS_PREDICTOR_PUBLIC_READ','RENDER'):
+        monkeypatch.delenv(key, raising=False)
     monkeypatch.setattr(socket.socket, 'connect', _connect)
     monkeypatch.setattr(socket, 'create_connection', _create_connection)
     from results_predictor.web import make_server
@@ -54,7 +56,7 @@ def http_api(tmp_path, monkeypatch):
         response=conn.getresponse()
         raw=response.read()
         conn.close()
-        return response.status,json.loads(raw)
+        return response.status,json.loads(raw) if 'application/json' in response.getheader('Content-Type', '') else raw.decode()
     yield request
     server.shutdown(); server.server_close(); worker.join()
 
@@ -140,3 +142,70 @@ def test_ledger_rejects_upsert_and_ignore(tmp_path):
     with pytest.raises(db.IntegrityError):
         db.conn.execute("INSERT INTO predictions_log SELECT * FROM predictions_log WHERE true ON CONFLICT(prediction_id) DO UPDATE SET symbol='Y'")
     db.close()
+
+
+def test_async_scan_authenticated(http_api, monkeypatch):
+    import time
+    monkeypatch.setenv('RESULTS_PREDICTOR_WRITE_TOKEN', 'test-token')
+    body = dict(start='2026-11-09', end='2026-11-13', offline=True, options=False, **{'async': True})
+    status, error = http_api('/api/scan', body)
+    assert status == 401 and error['error'] == 'Write token required'
+    headers = {'X-Write-Token': 'test-token'}
+    status, job = http_api('/api/scan', body, headers)
+    assert status == 202 and job['status'] == 'running'
+    path = '/api/jobs/' + job['job_id']
+    assert http_api(path)[0] == 401
+    deadline = time.monotonic() + 120
+    while True:
+        status, result = http_api(path, headers=headers)
+        assert status == 200
+        if result['status'] != 'running':
+            break
+        assert time.monotonic() < deadline
+        time.sleep(.05)
+    assert result['status'] == 'done'
+    assert result['rows'] and result['events'] and result['offline']
+    assert http_api('/api/jobs/missing', headers=headers)[0] == 404
+    assert http_api('/api/scan', dict(body, end='bad'), headers)[0] == 400
+
+
+def test_async_failure(http_api, monkeypatch):
+    import time
+    import results_predictor.web as web
+    monkeypatch.delenv('RESULTS_PREDICTOR_WRITE_TOKEN', raising=False)
+    monkeypatch.delenv('RESULTS_PREDICTOR_PUBLIC_READ', raising=False)
+    def failed(*args, **kwargs):
+        raise RuntimeError('provider unavailable')
+    monkeypatch.setattr(web, 'scan', failed)
+    status, job = http_api('/api/scan', dict(start='2026-11-09', end='2026-11-13', offline=False, **{'async': True}))
+    assert status == 202
+    deadline = time.monotonic() + 5
+    while True:
+        status, result = http_api('/api/jobs/' + job['job_id'])
+        if result['status'] != 'running':
+            break
+        assert time.monotonic() < deadline
+        time.sleep(.01)
+    assert result['status'] == 'error' and result['error'] == 'Data unavailable'
+
+
+def test_token_inside_scan_form(http_api, monkeypatch):
+    from html.parser import HTMLParser
+    class Elements(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.form = False
+            self.token_in_form = False
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == 'form': self.form = attrs.get('id') == 'form'
+            if attrs.get('id') == 'writeToken': self.token_in_form = self.form
+        def handle_endtag(self, tag):
+            if tag == 'form': self.form = False
+    monkeypatch.setenv('RESULTS_PREDICTOR_WRITE_TOKEN', 'test-token')
+    status, page = http_api('/')
+    parser = Elements()
+    parser.feed(page)
+    assert status == 200 and parser.token_in_form
+    monkeypatch.delenv('RESULTS_PREDICTOR_WRITE_TOKEN')
+    assert 'id="writeToken"' not in http_api('/')[1]
